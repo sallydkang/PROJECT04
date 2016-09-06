@@ -23,7 +23,10 @@
           $scope.errors = response.data.error
         } else if (response.data.token) {
           localStorage.token = response.data.token
+          $scope.factory.userName = response.data.user.username
           $scope.isLoggedin = true;
+          $scope.factory.isLoggedin = true;
+          $scope.factory.checkLogIn();
         }
       })
     }
@@ -37,9 +40,24 @@
           $scope.errors = response.data.error
         } else if (response.data.token) {
           localStorage.token = response.data.token
+          $scope.factory.userName = response.data.user.username
           $scope.isLoggedin = true;
+          $scope.factory.isLoggedin = true;
+          $scope.factory.checkLogIn();
         }
       })
+    }
+    
+    $scope.chatSend = function (){
+      $scope.factory.sendMsg($scope.textValue);
+      $scope.textValue="";
+    }
+    
+    $scope.onEnter = function (e){
+      if(e.keyCode === 13){
+        $scope.chatSend();
+        console.log('enter')
+      }
     }
   }
 })();
