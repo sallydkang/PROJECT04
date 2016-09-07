@@ -8,8 +8,13 @@
     $stateProvider
       .state('home', {
         url: '/home',
-        controller: 'homeController as home',
+        controller: 'homeController',
         templateUrl: '/views/home.html'
+      })
+      .state('dance', {
+        url: '/dance',
+        controller: 'homeController',
+        templateUrl: '/views/dance.html'
       })
   })
 

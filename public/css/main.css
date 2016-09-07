@@ -111,3 +111,26 @@ a:hover {
   width: 50px;
   height: 50px;
 }
+
+.hide {
+  display: none;
+}
+
+#joinChat {
+   width: 70%;
+  float: left; 
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+#chatBox2 {
+  display: flex;
+  flex: 3 !important;
+  flex-direction: column;
+  height: 390px;
+  box-shadow: 2px 2px 8px #888;
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}

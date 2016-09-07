@@ -2,7 +2,9 @@
   angular.module('salTV')
     .factory('homeFactory', homeFactory)
 
-  function homeFactory() {
+homeFactory.$inject=['$state'];
+
+  function homeFactory($state) {
     var factory = {};
     var socket = io();
     factory.color = randomColor();
@@ -15,10 +17,6 @@
     })
     
     socket.emit('init', factory.room)
-    
-    factory.checkLogIn = function () {
-      socket.emit('currentRoom', factory.room, factory.userName);
-    }
 
     factory.sendMsg = function (msg) {
       if(factory.isLoggedin ===true){
@@ -44,6 +42,8 @@
       socket.emit('leaveRoom', factory.room);
       factory.room = room;
       socket.emit('currentRoom', factory.room, factory.userName);
+      console.log(room);
+      $state.go(room);
     }
     
     socket.on('joinedMsg', function(userName){

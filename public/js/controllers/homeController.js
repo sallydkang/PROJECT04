@@ -14,6 +14,12 @@
     $scope.errors = ''
     $scope.isLoggedin = false;
 
+    $scope.$on('$viewContentLoaded', function(){
+      if(YT){
+      onYouTubeIframeAPIReady();
+      }
+    });
+    
     $scope.login = function () {
       $http.post("/login", {
         username: $scope.loginUsername,
@@ -26,7 +32,6 @@
           $scope.factory.userName = response.data.user.username
           $scope.isLoggedin = true;
           $scope.factory.isLoggedin = true;
-          $scope.factory.checkLogIn();
         }
       })
     }
@@ -43,7 +48,6 @@
           $scope.factory.userName = response.data.user.username
           $scope.isLoggedin = true;
           $scope.factory.isLoggedin = true;
-          $scope.factory.checkLogIn();
         }
       })
     }
@@ -57,6 +61,17 @@
       if(e.keyCode === 13){
         $scope.chatSend();
         console.log('enter')
+      }
+    }
+    
+    $scope.joinChat = function () {
+      if($scope.factory.isLoggedin === true){
+      $('#chatBox2').addClass('hide');
+      $('#chatBox').removeClass('hide');
+      $('#chatcontent').html("");
+      $scope.factory.changeRoom($state.current.name);
+      } else {
+        $('#Login').modal('show');
       }
     }
   }

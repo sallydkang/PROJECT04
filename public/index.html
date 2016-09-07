@@ -17,7 +17,7 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-collapsible">
         <ul class="nav navbar-nav navbar-left">
-          <li><a ui-sref='home'>HOME</a></li>
+          <li><a ng-click="factory.changeRoom('home')">HOME</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -102,7 +102,7 @@
       <div><img class="imgButton" src="http://i.imgur.com/2Sql5sL.png" alt="music"></div>
       </div>
       <div class="col-md-10" id="musicTab">
-        <button ng-clic="factory.changeRoom('dance')" id="danceButton">Dance</button>
+        <a ng-click="factory.changeRoom('dance')" id="danceButton">Dance</a>
       </div>
     </div>
   </div>
