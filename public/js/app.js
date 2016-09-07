@@ -16,6 +16,11 @@
         controller: 'homeController',
         templateUrl: '/views/dance.html'
       })
+      .state('customRoom', {
+        url: '/customRoom',
+        controller: 'homeController',
+        templateUrl: '/views/customRoom.html'
+      })
   })
 
 })();

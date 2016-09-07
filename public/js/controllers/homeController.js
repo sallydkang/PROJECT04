@@ -15,15 +15,26 @@
     $scope.isLoggedin = false;
     $scope.roomName = ''
     $scope.youtubeLink = ''
+    $scope.nonCustom = true;
 
-    $scope.$on('$viewContentLoaded', function(){
-      if(YT){
-      onYouTubeIframeAPIReady();
+    $scope.$on('$viewContentLoaded', function () {
+      var count = 0;
+      var intID = setInterval(function(){
+      console.log($scope.nonCustom);
+        count ++;
+        if (count> 3){
+          clearInterval(intID);
+        }
+      if (YT && $scope.nonCustom) {
+        console.log('pas');
+        clearInterval(intID);
+        onYouTubeIframeAPIReady();
       }
+      }, 1000);
     });
+
     
     $scope.login = function () {
-      $('#Login').modal('hide');
       $http.post("/login", {
         username: $scope.loginUsername,
         password: $scope.loginPassword
@@ -35,12 +46,12 @@
           $scope.factory.userName = response.data.user.username
           $scope.isLoggedin = true;
           $scope.factory.isLoggedin = true;
+          $('#Login').modal('hide');
         }
       })
     }
 
     $scope.register = function () {
-       $('#Register').modal('hide');
       $http.post("/register", {
         username: $scope.registerUsername,
         password: $scope.registerPassword
@@ -52,40 +63,45 @@
           $scope.factory.userName = response.data.user.username
           $scope.isLoggedin = true;
           $scope.factory.isLoggedin = true;
+          $('#Register').modal('hide');
         }
       })
     }
-    
-    $scope.chatSend = function (){
+
+    $scope.chatSend = function () {
       $scope.factory.sendMsg($scope.textValue);
-      $scope.textValue="";
+      $scope.textValue = "";
     }
-    
-    $scope.onEnter = function (e){
-      if(e.keyCode === 13){
+
+    $scope.onEnter = function (e) {
+      if (e.keyCode === 13) {
         $scope.chatSend();
         console.log('enter')
       }
     }
-    
+
     $scope.joinChat = function () {
-      if($scope.factory.isLoggedin === true){
+      if ($scope.factory.isLoggedin === true) {
         $('#chatBox2').addClass('hide');
         $('#chatBox').removeClass('hide');
         $('#chatcontent').html("");
-      $scope.factory.changeRoom($state.current.name);
+        $scope.factory.changeRoom($state.current.name);
       } else {
         $('#Login').modal('show');
       }
     }
-    
+
     $scope.makeRoom = function () {
-      if($scope.factory.isLoggedin === true && $scope.roomName && $scope.youtubeLink.match(/w{3}/g)){
+      if ($scope.factory.isLoggedin === true && $scope.roomName && $scope.youtubeLink.match(/w{3}/g)) {
+        $scope.nonCustom = false;
         $('#chatBox2').addClass('hide');
         $('#chatBox').removeClass('hide');
         $('#chatcontent').html("");
         $('#makeRoom').modal('hide');
-        factory.changeRoom($scope.roomName);
+        var num = $scope.youtubeLink.search(/=/i);
+        var link = $scope.youtubeLink.slice(num + 1, ($scope.youtubeLink.length));
+        $scope.factory.youtubeLink = link;
+        $scope.factory.changeCustomRoom($scope.roomName);
       } else if (!$scope.youtubeLink.match(/w{3}/g)) {
         $scope.errorMsg = 'Not a valid Youtube link'
       } else {

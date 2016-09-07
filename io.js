@@ -5,6 +5,7 @@ io.on('connection', function(socket){
   
   socket.on('currentRoom', function (currentRoom, userName){
     socket.join(currentRoom);
+    console.log(currentRoom);
     io.to(currentRoom).emit('joinedMsg', userName);
   })
   
@@ -18,6 +19,10 @@ io.on('connection', function(socket){
   
   socket.on('chatMsg', function (msg, userName, color, room){
     io.to(room).emit('chatMsg', msg, userName, color);
+  })
+  
+  socket.on('youtubeLink', function (link, customRoom){
+    io.to(customRoom).emit('youtubeLink', link);
   })
   
 })

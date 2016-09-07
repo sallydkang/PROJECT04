@@ -44,8 +44,29 @@ homeFactory.$inject=['$state'];
       socket.emit('currentRoom', factory.room, factory.userName);
       console.log(room);
       $state.go(room);
+       var event = new CustomEvent('load2', {
+         x: 'y'
+       })
+       document.dispatchEvent(event);
     }
     
+    factory.changeCustomRoom = function (room){
+      socket.emit('leaveRoom', factory.room);
+      factory.room = room;
+      socket.emit('currentRoom', factory.room, factory.userName);
+      console.log(room);
+      $state.go('customRoom');
+      socket.emit('youtubeLink', factory.youtubeLink, factory.room)
+    }
+    
+    socket.on('youtubeLink', function (link){
+      var event = new CustomEvent('load', {
+        customLink: link
+      })
+      customLink = link
+      document.dispatchEvent(event);
+    })
+
     socket.on('joinedMsg', function(userName){
       $('#chatcontent').append($('<p>').html(' ' + userName + ' has joined the chat'));
     })
