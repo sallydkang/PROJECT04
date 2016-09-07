@@ -18,6 +18,10 @@
           height: '390',
           width: '640',
           videoId: 'GKSRyLdjsPA',
+          playerVars: {
+            listType: 'playlist',
+            list: 'PL9tY0BWXOZFt0CUfM-41wOqSwrVO1mYmw'
+          },
           events: {
             'onReady': onPlayerReady
           }
@@ -28,7 +32,6 @@
       function onPlayerReady(event) {
         event.target.playVideo();
       }
-
     </script>
     <div class="col-md-4 hide" id="chatBox">
       <div id="chatcontent">&nbsp;</div>

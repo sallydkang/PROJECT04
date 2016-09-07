@@ -13,6 +13,8 @@
     $scope.registerPassword = ''
     $scope.errors = ''
     $scope.isLoggedin = false;
+    $scope.roomName = ''
+    $scope.youtubeLink = ''
 
     $scope.$on('$viewContentLoaded', function(){
       if(YT){
@@ -21,6 +23,7 @@
     });
     
     $scope.login = function () {
+      $('#Login').modal('hide');
       $http.post("/login", {
         username: $scope.loginUsername,
         password: $scope.loginPassword
@@ -37,6 +40,7 @@
     }
 
     $scope.register = function () {
+       $('#Register').modal('hide');
       $http.post("/register", {
         username: $scope.registerUsername,
         password: $scope.registerPassword
@@ -66,12 +70,26 @@
     
     $scope.joinChat = function () {
       if($scope.factory.isLoggedin === true){
-      $('#chatBox2').addClass('hide');
-      $('#chatBox').removeClass('hide');
-      $('#chatcontent').html("");
+        $('#chatBox2').addClass('hide');
+        $('#chatBox').removeClass('hide');
+        $('#chatcontent').html("");
       $scope.factory.changeRoom($state.current.name);
       } else {
         $('#Login').modal('show');
+      }
+    }
+    
+    $scope.makeRoom = function () {
+      if($scope.factory.isLoggedin === true && $scope.roomName && $scope.youtubeLink.match(/w{3}/g)){
+        $('#chatBox2').addClass('hide');
+        $('#chatBox').removeClass('hide');
+        $('#chatcontent').html("");
+        $('#makeRoom').modal('hide');
+        factory.changeRoom($scope.roomName);
+      } else if (!$scope.youtubeLink.match(/w{3}/g)) {
+        $scope.errorMsg = 'Not a valid Youtube link'
+      } else {
+        $scope.errorMsg = 'Please do not leave blanks'
       }
     }
   }

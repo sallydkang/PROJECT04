@@ -18,6 +18,7 @@
       <div class="navbar-collapse collapse" id="navbar-collapsible">
         <ul class="nav navbar-nav navbar-left">
           <li><a ng-click="factory.changeRoom('home')">HOME</a></li>
+          <li><a ng-if='isLoggedin' data-toggle="modal" data-target="#makeRoom">Make Room</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -52,7 +53,8 @@
               <input ng-model='loginPassword' type="password" class="form-control" name="passwd" placeholder="Password">
             </p>
             <p>
-              <button ng-click='login()' type="button" class="btn btn-primary" data-dismiss="modal">Sign in</button>
+              <button ng-click='login()' type="button" class="btn btn-primary">Sign in</button>
+              <a ng-if='!isLoggedin' data-toggle="modal" data-target="#Register" data-dismiss="modal">or Register</a>
             </p>
           </form>
         </div>
@@ -81,7 +83,8 @@
               <input ng-model='registerPassword' type="password" class="form-control" name="passwd" placeholder="Password">
             </p>
             <p>
-              <button ng-click='register()' type="button" class="btn btn-primary" data-dismiss="modal">Register!</button>
+              <button ng-click='register()' type="button" class="btn btn-primary">Register!</button>
+              <a ng-if='!isLoggedin' data-toggle="modal" data-target="#Login" data-dismiss="modal">Already a member?</a>
             </p>
           </form>
         </div>
@@ -92,6 +95,35 @@
     </div>
   </div>
 
+<!--make a room modal-->
+<div class="modal fade" id="makeRoom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Make Your Own TV room!</h4>
+        </div>
+        <div class="modal-body">
+          <form method="post" action='' name="make_room">
+           {{errorMsg}}
+            <p>
+              <input ng-model='roomName' type="text" class="form-control" name="eid" placeholder="Room Name!">
+            </p>
+            <p>
+              <input ng-model='youtubeLink' type="text" class="form-control" name="passwd" placeholder="Youtube Link...">
+            </p>
+            <p>
+              <button ng-click='makeRoom()' type="button" class="btn btn-primary">Create</button>
+            </p>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div style="height: 60vh;" ui-view></div>
   <div class="container" style="height: 30vh; padding: 0px 5px 0px 5px; margin: 0px 5px 0px 5px;">
     <div class="row">
