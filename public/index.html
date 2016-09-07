@@ -19,6 +19,7 @@
         <ul class="nav navbar-nav navbar-left">
           <li><a ng-click="factory.changeRoom('home')">HOME</a></li>
           <li><a ng-if='isLoggedin' data-toggle="modal" data-target="#makeRoom">Make Room</a></li>
+          <li><a ng-if='isLoggedin' data-toggle="modal" data-target="#joinRoom">Join Room</a></li>
           <li><a ng-if='roomName' ng-click="factory.changeCustomRoom(roomName)">{{roomName}}</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -115,6 +116,32 @@
             </p>
             <p>
               <button ng-click='makeRoom()' type="button" class="btn btn-primary">Create</button>
+            </p>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!--  join room modal-->
+  <div class="modal fade" id="joinRoom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Join Someone's Room!</h4>
+        </div>
+        <div class="modal-body">
+          <form method="post" action='' name="make_room">
+            {{errorMsg}}
+            <p>
+              <input ng-model='joinRoomName' type="text" class="form-control" name="eid" placeholder="Enter Room Name!">
+            </p>
+            <p>
+              <button ng-click='joinRoom()' type="button" class="btn btn-primary">Join!</button>
             </p>
           </form>
         </div>

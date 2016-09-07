@@ -67,6 +67,10 @@ homeFactory.$inject=['$state'];
       document.dispatchEvent(event);
     })
 
+    socket.on('getRoomList', function(arr){
+      factory.roomList = arr;
+    })
+    
     socket.on('joinedMsg', function(userName){
       $('#chatcontent').append($('<p>').html(' ' + userName + ' has joined the chat'));
     })

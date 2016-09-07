@@ -24,12 +24,14 @@ io.on('connection', function(socket){
     socket.leave(room);
   })
   
+  
   socket.on('chatMsg', function (msg, userName, color, room){
     io.to(room).emit('chatMsg', msg, userName, color);
   })
   
   socket.on('youtubeLink', function (link, customRoom){
     arrayLink.push({roomName: customRoom, YTlink: link});
+    socket.emit('getRoomList', arrayLink);
     io.to(customRoom).emit('youtubeLink', link);
   })
   

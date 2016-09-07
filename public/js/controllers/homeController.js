@@ -16,17 +16,16 @@
     $scope.roomName = ''
     $scope.youtubeLink = ''
     $scope.nonCustom = true;
+    $scope.joinRoomName =''
 
     $scope.$on('$viewContentLoaded', function () {
       var count = 0;
       var intID = setInterval(function(){
-      console.log($scope.nonCustom);
         count ++;
         if (count> 3){
           clearInterval(intID);
         }
       if (YT && $scope.nonCustom) {
-        console.log('pas');
         clearInterval(intID);
         onYouTubeIframeAPIReady();
       }
@@ -94,9 +93,6 @@
     $scope.makeRoom = function () {
       if ($scope.factory.isLoggedin === true && $scope.roomName && $scope.youtubeLink.match(/w{3}/g)) {
         $scope.nonCustom = false;
-        $('#chatBox2').addClass('hide');
-        $('#chatBox').removeClass('hide');
-        $('#chatcontent').html("");
         $('#makeRoom').modal('hide');
         var num = $scope.youtubeLink.search(/=/i);
         var link = $scope.youtubeLink.slice(num + 1, ($scope.youtubeLink.length));
@@ -108,5 +104,15 @@
         $scope.errorMsg = 'Please do not leave blanks'
       }
     }
+    
+    $scope.joinRoom = function () {
+      if($scope.factory.isLoggedin === true && $scope.joinRoomName){
+        $scope.nonCustom = false;
+        console.log($scope.factory.roomList);
+      
+        $('#joinRoom').modal('hide');
+      }
+    }
+    
   }
 })();
