@@ -19,7 +19,7 @@
         <ul class="nav navbar-nav navbar-left">
           <li><a ng-click="factory.changeRoom('home')">HOME</a></li>
           <li><a ng-if='isLoggedin' data-toggle="modal" data-target="#makeRoom">Make Room</a></li>
-          <li><a ng-if='roomName' ng-click="factory.changeRoom('room')">{{roomName}}</a></li>
+          <li><a ng-if='roomName' ng-click="factory.changeCustomRoom(roomName)">{{roomName}}</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>

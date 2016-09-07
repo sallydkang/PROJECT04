@@ -1,4 +1,5 @@
 var io = require('socket.io')();
+var arrayLink = [];
 
 io.on('connection', function(socket){
   socket.emit('connected', 'user connected');
@@ -6,6 +7,12 @@ io.on('connection', function(socket){
   socket.on('currentRoom', function (currentRoom, userName){
     socket.join(currentRoom);
     console.log(currentRoom);
+    arrayLink.forEach(function(room){
+      if(room.roomName === currentRoom ){
+        io.to(currentRoom).emit('youtubeLink', room.YTlink);
+        console.log(arrayLink);
+      }
+    })
     io.to(currentRoom).emit('joinedMsg', userName);
   })
   
@@ -22,6 +29,7 @@ io.on('connection', function(socket){
   })
   
   socket.on('youtubeLink', function (link, customRoom){
+    arrayLink.push({roomName: customRoom, YTlink: link});
     io.to(customRoom).emit('youtubeLink', link);
   })
   
