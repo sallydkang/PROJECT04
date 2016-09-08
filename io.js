@@ -3,6 +3,7 @@ var arrayLink = [];
 
 io.on('connection', function (socket) {
   socket.emit('connected', 'user connected');
+  io.emit('getRoomList', arrayLink);
 
   socket.on('currentRoom', function (currentRoom, userName) {
     socket.join(currentRoom);
@@ -37,6 +38,17 @@ io.on('connection', function (socket) {
       }
     }
     if (!dup) {
+      setTimeout(function () {
+        console.log('time')
+        arrayLink = arrayLink.filter(
+          function(room){
+            if(room.roomName != customRoom){
+              return room;
+            }               
+          })  
+        io.emit('getRoomList', arrayLink);
+      }, 900000)
+      
       arrayLink.push({
         roomName: customRoom,
         YTlink: link

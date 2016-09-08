@@ -22,7 +22,7 @@
             <li><a ng-click="factory.changeRoom('home')">HOME</a></li>
             <li><a ng-if='navbarLink()' data-toggle="modal" data-target="#makeRoom">Make Room</a></li>
             <li><a ng-if='navbarLink()' data-toggle="modal" data-target="#joinRoom">Join Room</a></li>
-            <li><a ng-if='roomName' ng-click="factory.changeCustomRoom(roomName)">{{roomName}}</a></li>
+            <li><a ng-if='navbarLink()' data-toggle="modal" data-target="#roomModal">Room List</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
@@ -32,7 +32,7 @@
               <a ng-if='!isLoggedin' data-toggle="modal" data-target="#Register">Register</a>
             </li>
             <li>
-              <a ng-if='isLoggedin'>You are Logged in as: {{factory.userName}}</a>
+              <a ng-if='isLoggedin'>Welcome, {{factory.userName}}</a>
             </li>
           </ul>
         </div>
@@ -101,7 +101,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Make Your Own TV room!</h4>
+            <h4 class="modal-title" id="myModalLabel">Make Your Own TV room! Rooms Last 15 mins!</h4>
           </div>
           <div class="modal-body">
             {{errorMsg}}
@@ -145,22 +145,55 @@
         </div>
       </div>
     </div>
+    
+<!--roomModal-->
+    <div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Rooms Lasts for 15 mins!</h4>
+          </div>
+          <div class="modal-body">
+            <li ng-repeat="room123 in factory.roomList">
+             <a data-dismiss="modal" ng-click="factory.changeCustomRoom(room123.roomName)">
+            {{room123.roomName}}
+            </a>
+            </li>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div id="midLow">
       <div id="middleContainer" ui-view></div>
 
       <div class="con" id="lowerContainer">
-          <div id="iconButton">
-            <a><img class="imgButton" src="http://image.flaticon.com/icons/svg/164/164406.svg" alt="music"></a>
-            <div><img class="imgButton" src="http://image.flaticon.com/icons/svg/213/213478.svg" alt="show"></div>
-            <div><img class="imgButton" src="http://image.flaticon.com/icons/svg/207/207016.svg" alt="movie"></div>
-            <div><img class="imgButton" src="http://image.flaticon.com/icons/svg/191/191897.svg" alt="game"></div>
-          </div>
-          <div id="musicTab">
-            <li class="roomButtons">
-              <a ng-click="factory.changeRoom('dance')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/uFO4Riu5DjU/default.jpg" alt="">Dance</a>
-            </li>
-          </div>
+        <div id="iconButton" class="hi-icon-wrap hi-icon-effect-3 hi-icon-effect-3a">
+          <a href="" ng-click="musicTab()" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/164/164406.svg" alt="music"></a>
+          <a href="" ng-click="showsTab()" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/213/213478.svg" alt="show"></a>
+          <a href="" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/207/207016.svg" alt="movie"></a>
+          <a href="" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/191/191897.svg" alt="game"></a>
+        </div>
+        <div id="musicTab">
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('dance')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/uFO4Riu5DjU/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Dance"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('kpop')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/v6NTX2gH_uM/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="kpop"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('EDM')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/PIlFyXucIhw/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="MonsterCat"></a>
+          </li>
+        </div>
+        <div class="hide" id="showsTab">
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('CNN')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/bcuc2Qwa3g8/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="CNN"></a>
+          </li>
+        </div>
       </div>
     </div>
   </div>
