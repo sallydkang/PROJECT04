@@ -46,6 +46,21 @@
         controller: 'homeController',
         templateUrl: '/views/chillhop.html'
       })
+      .state('mixhound', {
+        url: '/mixhound',
+        controller: 'homeController',
+        templateUrl: '/views/mixhound.html'
+      })
+      .state('trapking', {
+        url: '/trapking',
+        controller: 'homeController',
+        templateUrl: '/views/trapking.html'
+      })
+      .state('trendingMusic', {
+        url: '/trendingMusic',
+        controller: 'homeController',
+        templateUrl: '/views/trendingMusic.html'
+      })
       .state('customRoom', {
         url: '/customRoom',
         controller: 'homeController',

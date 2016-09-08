@@ -145,8 +145,8 @@
         </div>
       </div>
     </div>
-    
-<!--roomModal-->
+
+    <!--roomModal-->
     <div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -156,7 +156,7 @@
           </div>
           <div class="modal-body">
             <li ng-repeat="room123 in factory.roomList">
-             <a data-dismiss="modal" ng-click="factory.changeCustomRoom(room123.roomName)">
+              <a data-dismiss="modal" ng-click="factory.changeCustomRoom(room123.roomName)">
             {{room123.roomName}}
             </a>
             </li>
@@ -191,6 +191,16 @@
           <li class="roomButtons">
             <a ng-click="factory.changeRoom('chillhop')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/mx6t6E24SSM/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="chillhop"></a>
           </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('mixhound')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/dxVzsVFAw34/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="mixhound"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('trapking')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/j5tUmWzEAO4/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Trap King"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('trendingMusic')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/pXRviuL6vMY/default.jpg" alt="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trending Music"></a>
+          </li>
+          
         </div>
         <div class="hide" id="showsTab">
           <li class="roomButtons">
