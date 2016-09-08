@@ -31,6 +31,21 @@
         controller: 'homeController',
         templateUrl: '/views/CNN.html'
       })
+      .state('Bloomberg', {
+        url: '/Bloomberg',
+        controller: 'homeController',
+        templateUrl: '/views/Bloomberg.html'
+      })
+      .state('philip', {
+        url: '/philip',
+        controller: 'homeController',
+        templateUrl: '/views/philip.html'
+      })
+      .state('chillhop', {
+        url: '/chillhop',
+        controller: 'homeController',
+        templateUrl: '/views/chillhop.html'
+      })
       .state('customRoom', {
         url: '/customRoom',
         controller: 'homeController',
