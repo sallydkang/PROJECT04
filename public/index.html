@@ -10,7 +10,7 @@
 </head>
 
 <body ng-controller="homeController" ng-cloak>
-  <nav class="navbar navbar-trans navbar-fixed-top" role="navigation" style="position: relative; height: 7vh;">
+  <nav class="navbar navbar-trans navbar-fixed-top" role="navigation" style="position: relative; height: 7vh; margin-bottom: 1px;">
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand text-danger" href="#"><img src="http://i.imgur.com/4OAx1ZB.png" style="height: 40px; width: 100px; margin-top: -9px; margin-left: -25px;" alt=""></a>
@@ -144,17 +144,21 @@
     </div>
   </div>
 
-  <div style="height: 60vh;" ui-view></div>
-  <div class="container" style="height: 30vh; padding: 0px 5px 0px 5px; margin: 0px 5px 0px 5px;">
-    <div class="row">
-      <div class="col-md-2">
-        <div><img class="imgButton" src="http://i.imgur.com/C0obT1M.png" alt="music"></div>
-        <div><img class="imgButton" src="http://i.imgur.com/kaUFc1B.png" alt="music"></div>
-        <div><img class="imgButton" src="http://i.imgur.com/bQ5GaFo.png" alt="music"></div>
-        <div><img class="imgButton" src="http://i.imgur.com/2Sql5sL.png" alt="music"></div>
+  <div style="height: 55vh;" ui-view></div>
+  <div class="container" style="display:table;
+    width: 99%; padding: 0px; margin-top: 10px;">
+    <div class="row" style="width: 100%; height: 36vh;
+    display: table-row;">
+      <div class="col-md-1" id="iconButton">
+        <div><img class="imgButton" src="http://image.flaticon.com/icons/svg/164/164406.svg" alt="music" style="margin-top: 15px;"></div>
+        <div><img class="imgButton" src="http://image.flaticon.com/icons/svg/213/213478.svg" alt="show"></div>
+        <div><img class="imgButton" src="http://image.flaticon.com/icons/svg/207/207016.svg" alt="movie"></div>
+        <div><img class="imgButton" src="http://image.flaticon.com/icons/svg/191/191897.svg" alt="game"></div>
       </div>
       <div class="col-md-10" id="musicTab">
-        <a ng-click="factory.changeRoom('dance')" id="danceButton">Dance</a>
+        <li class="roomButtons">
+        <a ng-click="factory.changeRoom('dance')"  id="danceButton">Dance</a>
+        </li>
       </div>
     </div>
   </div>
