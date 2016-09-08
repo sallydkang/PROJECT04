@@ -164,8 +164,8 @@ a:hover {
 }
 
 .roomButtons {
-  width: 85px;
-  height: 85px;
-  border: black solid 2px;
+  width: 150px;
+  border: solid white 1px;
+  margin-top: 5px;
   list-style-type: none;
 }
