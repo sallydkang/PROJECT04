@@ -18,6 +18,20 @@
     $scope.nonCustom = true;
     $scope.joinRoomName =''
 
+    $('li').on('click', function(){
+      $scope.errorMsg = '';
+      stateHome();
+      $scope.$apply();
+    })
+    
+    $scope.navbarLink = function (){
+      if($scope.isLoggedin && stateHome()){
+        return true;
+      } else {
+        return false;
+      }
+    }
+    
     $scope.$on('$viewContentLoaded', function () {
       var count = 0;
       var intID = setInterval(function(){
@@ -49,6 +63,16 @@
         }
       })
     }
+    
+    function stateHome (){
+      if($state.current.name === 'home'){
+        $scope.stateHome = true;
+        return true;
+      } else {
+        $scope.stateHome = false;
+        return false;
+      }
+    }
 
     $scope.register = function () {
       $http.post("/register", {
@@ -75,7 +99,6 @@
     $scope.onEnter = function (e) {
       if (e.keyCode === 13) {
         $scope.chatSend();
-        console.log('enter')
       }
     }
 
@@ -92,25 +115,50 @@
 
     $scope.makeRoom = function () {
       if ($scope.factory.isLoggedin === true && $scope.roomName && $scope.youtubeLink.match(/w{3}/g)) {
+        var bool = false;
+        if($scope.factory.roomList){
+        var roomList = $scope.factory.roomList;
+        } else {
+          roomList = [];
+        }
+        for(var i =0; i<roomList.length; i++){
+          if(roomList[i].roomName === $scope.roomName){
+            bool = true;
+            $scope.errorMsg = 'Room Name already exists'
+          }
+        }
+        
+      if(!bool){
         $scope.nonCustom = false;
         $('#makeRoom').modal('hide');
         var num = $scope.youtubeLink.search(/=/i);
         var link = $scope.youtubeLink.slice(num + 1, ($scope.youtubeLink.length));
         $scope.factory.youtubeLink = link;
         $scope.factory.changeCustomRoom($scope.roomName);
+      }
+        
       } else if (!$scope.youtubeLink.match(/w{3}/g)) {
         $scope.errorMsg = 'Not a valid Youtube link'
       } else {
         $scope.errorMsg = 'Please do not leave blanks'
       }
+        
     }
     
     $scope.joinRoom = function () {
       if($scope.factory.isLoggedin === true && $scope.joinRoomName){
         $scope.nonCustom = false;
-        console.log($scope.factory.roomList);
-      
-        $('#joinRoom').modal('hide');
+        var roomList = $scope.factory.roomList;
+        console.log(roomList);
+        for (var i=0; i<roomList.length; i++){
+          if (roomList[i].roomName === $scope.joinRoomName){
+            var YTlink = roomList[i].YTlink
+            $scope.factory.joinRoom($scope.joinRoomName, YTlink)
+             $('#joinRoom').modal('hide');
+          } else {
+            $scope.errorMsg = "Room does not exist"
+          }
+        }
       }
     }
     

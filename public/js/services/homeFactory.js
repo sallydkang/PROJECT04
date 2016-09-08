@@ -28,8 +28,6 @@ homeFactory.$inject=['$state'];
 
     socket.on('chatMsg', function (msg, userName, color) {
       var momentTimestamp = moment.utc(msg.timestamp);
-      console.log('something');
-      console.log(factory.isLoggedin);
         msg.timestamp = moment().valueOf()
         $('#chatcontent').append($(`<i class="fa fa-commenting-o" aria-hidden="true" id="upMsg">`).html(' ' + `<span style="color: ${color};"> ${userName} </span>`+ ': ' + msg + ' ' + momentTimestamp.local().format('h:mm a')));
     })
@@ -42,7 +40,6 @@ homeFactory.$inject=['$state'];
       socket.emit('leaveRoom', factory.room);
       factory.room = room;
       socket.emit('currentRoom', factory.room, factory.userName);
-      console.log(room);
       $state.go(room);
        var event = new CustomEvent('load2', {
          x: 'y'
@@ -54,9 +51,16 @@ homeFactory.$inject=['$state'];
       socket.emit('leaveRoom', factory.room);
       factory.room = room;
       socket.emit('currentRoom', factory.room, factory.userName);
-      console.log(room);
       $state.go('customRoom');
       socket.emit('youtubeLink', factory.youtubeLink, factory.room)
+    }
+    
+    factory.joinRoom = function (room, YTlink) {
+      socket.emit('leaveRoom', factory.room);
+      factory.room = room;
+      socket.emit('currentRoom', room, factory.userName);
+      $state.go('customRoom');
+      socket.emit('youtubeLink', YTlink, room)
     }
     
     socket.on('youtubeLink', function (link){
@@ -69,6 +73,7 @@ homeFactory.$inject=['$state'];
 
     socket.on('getRoomList', function(arr){
       factory.roomList = arr;
+      console.log(factory.roomList);
     })
     
     socket.on('joinedMsg', function(userName){

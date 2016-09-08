@@ -18,8 +18,8 @@
       <div class="navbar-collapse collapse" id="navbar-collapsible">
         <ul class="nav navbar-nav navbar-left">
           <li><a ng-click="factory.changeRoom('home')">HOME</a></li>
-          <li><a ng-if='isLoggedin' data-toggle="modal" data-target="#makeRoom">Make Room</a></li>
-          <li><a ng-if='isLoggedin' data-toggle="modal" data-target="#joinRoom">Join Room</a></li>
+          <li><a ng-if='navbarLink()' data-toggle="modal" data-target="#makeRoom">Make Room</a></li>
+          <li><a ng-if='navbarLink()' data-toggle="modal" data-target="#joinRoom">Join Room</a></li>
           <li><a ng-if='roomName' ng-click="factory.changeCustomRoom(roomName)">{{roomName}}</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -46,7 +46,6 @@
           <h4 class="modal-title" id="myModalLabel">Login!</h4>
         </div>
         <div class="modal-body">
-          <form method="post" action='' name="login_form">
             {{errors}}
             <p>
               <input ng-model='loginUsername' type="text" class="form-control" name="eid" placeholder="Username">
@@ -58,7 +57,6 @@
               <button ng-click='login()' type="button" class="btn btn-primary">Sign in</button>
               <a ng-if='!isLoggedin' data-toggle="modal" data-target="#Register" data-dismiss="modal">or Register</a>
             </p>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -76,7 +74,6 @@
           <h4 class="modal-title" id="myModalLabel">Register!</h4>
         </div>
         <div class="modal-body">
-          <form method="post" action='' name="login_form">
             {{errors}}
             <p>
               <input ng-model='registerUsername' type="text" class="form-control" name="eid" placeholder="Username">
@@ -88,7 +85,6 @@
               <button ng-click='register()' type="button" class="btn btn-primary">Register!</button>
               <a ng-if='!isLoggedin' data-toggle="modal" data-target="#Login" data-dismiss="modal">Already a member?</a>
             </p>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -106,7 +102,6 @@
           <h4 class="modal-title" id="myModalLabel">Make Your Own TV room!</h4>
         </div>
         <div class="modal-body">
-          <form method="post" action='' name="make_room">
             {{errorMsg}}
             <p>
               <input ng-model='roomName' type="text" class="form-control" name="eid" placeholder="Room Name!">
@@ -117,7 +112,6 @@
             <p>
               <button ng-click='makeRoom()' type="button" class="btn btn-primary">Create</button>
             </p>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -135,15 +129,13 @@
           <h4 class="modal-title" id="myModalLabel">Join Someone's Room!</h4>
         </div>
         <div class="modal-body">
-          <form method="post" action='' name="make_room">
             {{errorMsg}}
             <p>
               <input ng-model='joinRoomName' type="text" class="form-control" name="eid" placeholder="Enter Room Name!">
             </p>
             <p>
               <button ng-click='joinRoom()' type="button" class="btn btn-primary">Join!</button>
-            </p>
-          </form>
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
