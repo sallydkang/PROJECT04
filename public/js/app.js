@@ -61,6 +61,11 @@
         controller: 'homeController',
         templateUrl: '/views/trendingMusic.html'
       })
+      .state('chillmix', {
+        url: '/chillmix',
+        controller: 'homeController',
+        templateUrl: '/views/chillmix.html'
+      })
       .state('customRoom', {
         url: '/customRoom',
         controller: 'homeController',
