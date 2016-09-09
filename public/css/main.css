@@ -171,6 +171,34 @@ body {
     box-shadow: 2px 2px 8px #888;
 }
 
+#moviesTab {
+  /*  background-color: #fff;*/
+  flex-basis: 0;
+  flex: 1;
+  margin: 5px;
+/*  border-radius: 20px;*/
+  height: 96%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: white;
+    box-shadow: 2px 2px 8px #888;
+}
+
+#gamesTab {
+  /*  background-color: #fff;*/
+  flex-basis: 0;
+  flex: 1;
+  margin: 5px;
+/*  border-radius: 20px;*/
+  height: 96%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: white;
+    box-shadow: 2px 2px 8px #888;
+}
+
 .roomButtons {
   width: 150px;
   list-style-type: none;

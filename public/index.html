@@ -174,7 +174,7 @@
           <a href="" ng-click="musicTab()" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/164/164406.svg" alt="music"></a>
           <a href="" ng-click="showsTab()" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/213/213478.svg" alt="show"></a>
           <a ng-click="moviesTab()" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/207/207016.svg" alt="movie"></a>
-          <a href="" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/191/191897.svg" alt="game"></a>
+          <a ng-click="gamesTab()" class="hi-icon"><img class="imgButton" src="http://image.flaticon.com/icons/svg/191/191897.svg" alt="game"></a>
         </div>
         <div id="musicTab">
           <li class="roomButtons">
@@ -233,19 +233,42 @@
           <li class="roomButtons">
             <a ng-click="factory.changeRoom('foxNews')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/hhUuai6AYPY/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Fox News"></a>
           </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('cherokee')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/j5XXOEPCro0/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Cherokee News"></a>
+          </li>
         </div>
         <div class="hide" id="moviesTab">
           <li class="roomButtons">
-            <a ng-click="factory.changeRoom('CNN')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/bcuc2Qwa3g8/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="CNN"></a>
+            <a ng-click="factory.changeRoom('bestMovie')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/fIHH5-HVS9o/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Best Movie trailer"></a>
           </li>
           <li class="roomButtons">
-            <a ng-click="factory.changeRoom('Bloomberg')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/IIT9ZgVnHP8/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Bloomberg"></a>
+            <a ng-click="factory.changeRoom('horror')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/AaPKmotIpgA/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Horror"></a>
           </li>
           <li class="roomButtons">
-            <a ng-click="factory.changeRoom('philip')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/f1O8kCoFlyU/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="philip"></a>
+            <a ng-click="factory.changeRoom('action')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/D0fUqJWlaYM/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Action"></a>
           </li>
           <li class="roomButtons">
-            <a ng-click="factory.changeRoom('foxNews')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/hhUuai6AYPY/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Fox News"></a>
+            <a ng-click="factory.changeRoom('sad')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/tilktmBZNdI/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sad"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('dunkirk')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/rJePvN_4T_E/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Dunkirk"></a>
+          </li>
+        </div>
+        <div class="hide" id="gamesTab">
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('LoL')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/gopGIuDpGU8/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="LoL eSports"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('fantastic')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/BMAj4I8vJpA/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Fantastic Gamer"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('faze')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/9ja79pNys7E/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="FaZe"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('MrTL')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/8PlROhhlg-k/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="MrTLexify"></a>
+          </li>
+          <li class="roomButtons">
+            <a ng-click="factory.changeRoom('chucky')" id="danceButton"><img class="thumb" src="http://img.youtube.com/vi/kBKoGxlWS8Q/default.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Chucky"></a>
           </li>
         </div>
       </div>

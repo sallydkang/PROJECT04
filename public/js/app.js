@@ -101,6 +101,61 @@
         controller: 'homeController',
         templateUrl: '/views/foxNews.html'
       })
+      .state('cherokee', {
+        url: '/cherokee',
+        controller: 'homeController',
+        templateUrl: '/views/cherokee.html'
+      })
+      .state('bestMovie', {
+        url: '/bestMovie',
+        controller: 'homeController',
+        templateUrl: '/views/bestMovie.html'
+      })
+      .state('horror', {
+        url: '/horror',
+        controller: 'homeController',
+        templateUrl: '/views/horror.html'
+      })
+      .state('action', {
+        url: '/action',
+        controller: 'homeController',
+        templateUrl: '/views/action.html'
+      })
+      .state('sad', {
+        url: '/sad',
+        controller: 'homeController',
+        templateUrl: '/views/sad.html'
+      })
+      .state('LoL', {
+        url: '/LoL',
+        controller: 'homeController',
+        templateUrl: '/views/LoL.html'
+      })
+      .state('fantastic', {
+        url: '/fantastic',
+        controller: 'homeController',
+        templateUrl: '/views/fantastic.html'
+      })
+      .state('faze', {
+        url: '/faze',
+        controller: 'homeController',
+        templateUrl: '/views/faze.html'
+      })
+      .state('MrTL', {
+        url: '/MrTL',
+        controller: 'homeController',
+        templateUrl: '/views/MrTL.html'
+      })
+      .state('chucky', {
+        url: '/chucky',
+        controller: 'homeController',
+        templateUrl: '/views/chucky.html'
+      })
+      .state('dunkirk', {
+        url: '/dunkirk',
+        controller: 'homeController',
+        templateUrl: '/views/dunkirk.html'
+      })
       .state('customRoom', {
         url: '/customRoom',
         controller: 'homeController',

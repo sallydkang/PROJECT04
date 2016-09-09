@@ -170,17 +170,27 @@
     $scope.musicTab = function(){
       $('#musicTab').removeClass('hide');
       $('#showsTab').addClass('hide');
+      $('#gamesTab').addClass('hide');
       $('#moviesTab').addClass('hide');
     }
     
     $scope.showsTab = function(){
       $('#showsTab').removeClass('hide');
       $('#musicTab').addClass('hide');
+      $('#gamesTab').addClass('hide');
       $('#moviesTab').addClass('hide');
     }
     
     $scope.moviesTab = function(){
       $('#moviesTab').removeClass('hide');
+      $('#musicTab').addClass('hide');
+      $('#showsTab').addClass('hide');
+      $('#gamesTab').addClass('hide');
+    }
+    
+     $scope.gamesTab = function(){
+      $('#gamesTab').removeClass('hide');
+      $('#moviesTab').addClass('hide');
       $('#musicTab').addClass('hide');
       $('#showsTab').addClass('hide');
     }
