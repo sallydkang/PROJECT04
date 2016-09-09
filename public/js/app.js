@@ -66,6 +66,41 @@
         controller: 'homeController',
         templateUrl: '/views/chillmix.html'
       })
+      .state('hiSessions', {
+        url: '/hiSessions',
+        controller: 'homeController',
+        templateUrl: '/views/hiSessions.html'
+      })
+      .state('trendingRap', {
+        url: '/trendingRap',
+        controller: 'homeController',
+        templateUrl: '/views/trendingRap.html'
+      })
+      .state('spinninRecords', {
+        url: '/spinninRecords',
+        controller: 'homeController',
+        templateUrl: '/views/spinninRecords.html'
+      })
+      .state('liveEDM', {
+        url: '/liveEDM',
+        controller: 'homeController',
+        templateUrl: '/views/liveEDM.html'
+      })
+      .state('Marshmello', {
+        url: '/Marshmello',
+        controller: 'homeController',
+        templateUrl: '/views/Marshmello.html'
+      })
+      .state('vevo', {
+        url: '/vevo',
+        controller: 'homeController',
+        templateUrl: '/views/vevo.html'
+      })
+      .state('foxNews', {
+        url: '/foxNews',
+        controller: 'homeController',
+        templateUrl: '/views/foxNews.html'
+      })
       .state('customRoom', {
         url: '/customRoom',
         controller: 'homeController',

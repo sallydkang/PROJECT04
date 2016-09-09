@@ -170,12 +170,19 @@
     $scope.musicTab = function(){
       $('#musicTab').removeClass('hide');
       $('#showsTab').addClass('hide');
+      $('#moviesTab').addClass('hide');
     }
     
     $scope.showsTab = function(){
-      $('#musicTab').addClass('hide');
       $('#showsTab').removeClass('hide');
+      $('#musicTab').addClass('hide');
+      $('#moviesTab').addClass('hide');
     }
-
+    
+    $scope.moviesTab = function(){
+      $('#moviesTab').removeClass('hide');
+      $('#musicTab').addClass('hide');
+      $('#showsTab').addClass('hide');
+    }
   }
 })();
