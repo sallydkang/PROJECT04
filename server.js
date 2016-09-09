@@ -15,7 +15,8 @@ require('dotenv').load();
 
 //mongoose
 var mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost/jwt_auth")
+mongoose.connect(process.env.MONGODB_URI)
+
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
