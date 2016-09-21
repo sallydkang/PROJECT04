@@ -45,8 +45,8 @@
 	var password = req.body.password
 	}
 	```
-	```javascript
-	function login (req, res, next) {
+		```javascript
+		function login (req, res, next) {
 	var username = req.body.username
 	var password = req.body.password
 	}
